@@ -26,6 +26,7 @@ angular.module('invoicing', [])
   ]
 })
 
+
 // Service for accessing local storage
 .service('LocalStorage', [function() {
 
