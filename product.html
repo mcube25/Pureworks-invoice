@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8"> 
+		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Product - BergTheme HTML</title>
 		<meta name="description" content="">
@@ -20,7 +20,32 @@
     <body class="no-intro show-nav yo-anim-enabled">
 		<div class="content-wrapper">
 		<!--content-->
+		<script language="JavaScript">
 
+
+		    var parameters = location.search.substring(1).split("&");
+
+		    var temp = parameters[0].split("=");
+		    l = unescape(temp[1]);
+		    l = l.replace('+',' ');
+		    temp = parameters[1].split("=");
+		    p = unescape(temp[1]);
+		    temp = parameters[2].split("=");
+		    m = unescape(temp[1]);
+		    temp = parameters[3].split("=");
+		    n = unescape(temp[1]);
+		    temp = parameters[4].split("=");
+		    o = unescape(temp[1]);
+		    o = o.replace('+',' ');
+		    document.getElementById("l").innerHTML = l;
+		    document.getElementById("p").innerHTML = p;
+		 	document.getElementById("m").innerHTML = m;
+		 	document.getElementById("n").innerHTML = n;
+		 	document.getElementById("o").innerHTML = o;
+
+
+
+		</script>
 
 <nav id="main-navbar" class="hidden-xs hidden-sm">
 	<div class="nav hidden-xs">
@@ -46,10 +71,10 @@
 						<ul class="subnav-wrapper">
 							<li>
 								<a href="index.html" class="">parallax</a>
-							</li>							
+							</li>
 							<li>
 								<a href="index2.html" class="">fullscreen slider</a>
-							</li>							
+							</li>
 							<li>
 								<a href="index3.html" class="">video background</a>
 							</li>
@@ -58,10 +83,10 @@
 							</li>
 							<li>
 								<a href="index5.html" class="">classic</a>
-							</li>							
+							</li>
 						</ul>
-					</div>					
-				</li>				
+					</div>
+				</li>
 				<li>
 					<a href="blog.html" class="">blog</a>
 					<div class="subnav">
@@ -84,7 +109,7 @@
 				<li>
 					<a href="menu.html" class="hover-subnav ">menu</a>
 					<div class="subnav image-subnav">
-						<ul class="subnav-wrapper">			
+						<ul class="subnav-wrapper">
 							<li>
 								<a href="menu.html#starters">starters</a>
 								<div>
@@ -93,10 +118,10 @@
 							</li>
 							<li>
 								<a href="menu.html#salads">salads</a>
-								<div>							
+								<div>
 									<a href="menu.html#salads" class="menu-img" style="background-image: url('http://placehold.it/500x500')"></a>
 								</div>
-							
+
 							</li>
 							<li>
 								<a href="menu.html#soups">soups</a>
@@ -118,18 +143,18 @@
 							</li>
 							<li>
 								<a href="menu.html#drinks">drinks</a>
-								<div>							
+								<div>
 									<a href="menu.html#drinks" class="menu-img" style="background-image: url('http://placehold.it/500x500')"></a>
 								</div>
 							</li>
 						</ul>
 					</div>
-				</li>	
+				</li>
 				<li>
 					<a href="reservation.html" class="">reservation</a>
 				</li>
 				<li>
-					<a href="contact.html" class="">contact</a>	
+					<a href="contact.html" class="">contact</a>
 				</li>
 				<li>
 					<a href="shop.html" class="">shop</a>
@@ -143,13 +168,13 @@
 							</li>
 							<li>
 								<a href="menu3.html" class="">list menu</a>
-							</li>							
+							</li>
 							<li>
 								<a href="typography.html" class="">typography</a>
 							</li>
 							<li>
 								<a href="gallery.html" class="">gallery</a>
-							</li>						
+							</li>
 							<li>
 								<a href="fullscreen-intro.html">fullscreen intro</a>
 							</li>
@@ -158,10 +183,10 @@
 							</li>
 							<li>
 								<a href="without-intro.html">no header</a>
-							</li>			
+							</li>
 						</ul>
 					</div>
-				</li>				
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -180,7 +205,7 @@
 				<li class="reorder pull-right"><a href="#" title=""><i class="fa fa-bars"></i></a></li>
 			</ul>
 		</div>
-	</header>	
+	</header>
 	<div class="" id="flyout-container">
 		<ul id="mobile-navbar" class="nav flyout-menu main-nav nav-height">
 			<li class="nav-item">
@@ -305,7 +330,7 @@
 				<button class="btn btn-dark"><a href="cart.html">checkout</a></button>
 			</div>
 		</li>
-		
+
 	</ul>
 </li>
 			</ul>
@@ -398,7 +423,7 @@
 						<div class="shop-button"><a href="#" class="btn btn-color">buy now</a></div>
 					</div>
 				</div>
-				<div class="description">				
+				<div class="description">
 					<h3>Description</h3>
 					<p>Quisque luctus semper auctor. Duis mattis tristique blandit. Aliquam euismod pellentesque justo ac aliquet. Nunc eget feugiat lacus. Aliquam placerat lectus eu dui sodales auctor. Donec eu convallis erat. Sed consequat nisi magna, vitae aliquet arcu accumsan nec. Ut ac varius nisi, a volutpat lectus. Vestibulum accumsan id ligula varius commodo.
 					</p>
@@ -415,7 +440,7 @@
 								</div>
 							</div>
 							<div class="reviews-text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare turpis urna, ut tincidunt elit molestie ut. Nulla aliquam varius dapibus. Phasellus cursus nibh consequat facilisis molestie. Duis eu erat rutrum mauris elementum aliquam sed tempus dolor. 
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare turpis urna, ut tincidunt elit molestie ut. Nulla aliquam varius dapibus. Phasellus cursus nibh consequat facilisis molestie. Duis eu erat rutrum mauris elementum aliquam sed tempus dolor.
 								</p>
 							</div>
 						</div>
@@ -461,7 +486,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<input type="text" class="form-control form-name-error" name="reviews[form-name]" id="form-name" placeholder="Name">
-								</div>						
+								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
@@ -477,7 +502,7 @@
 								<div class="form-group text-right btn-submit">
 									<button type="submit" class="btn btn-dark button-submit">SUBMIT REVIEW</button>
 									<div class="message-success alert-success alert hidden" style="position: absolute"><i class="fa fa-check"></i></div>
-								</div>	
+								</div>
 							</div>
 						</form>
 					</div>
@@ -505,19 +530,19 @@
 							<span class="hours">7.00 - 21.00</span>
 						</div>
 					</div>
-					<div class="col-sm-6 col-lg-3">	
+					<div class="col-sm-6 col-lg-3">
 						<div class="open-daily">
 							<span class="day">Friday - Sunday</span>
 							<span class="hours">7.00 - 23.00</span>
 						</div>
-					</div>	
-					<div class="col-sm-6 col-lg-3">	
+					</div>
+					<div class="col-sm-6 col-lg-3">
 						<div class="simple-contact">
 							<span class="address">Armii Krajowej 17</span>
 							<span class="postal-code">58-100 Świdnica</span>
 						</div>
-					</div>	
-					<div class="col-sm-6 col-lg-3">	
+					</div>
+					<div class="col-sm-6 col-lg-3">
 						<div class="simple-contact">
 							<span class="mobile"><a href="#">+48 889 889 889</a></span>
 							<span class="email"><a href="#">restaurant@berg.com</a></span>
@@ -564,7 +589,7 @@
 		<script src="js/matchmedia.js"></script>
 		<script src="js/enquire.min.js"></script>
 		<script src="js/jquery.velocity.min.js"></script>
-		<script src="js/waypoints.js"></script>		
+		<script src="js/waypoints.js"></script>
 		<script src="js/owl.carousel.js"></script>
 		<script src="js/jquery.backstretch.js"></script>
 		<script src="js/jquery.mb.YTPlayer.js"></script>

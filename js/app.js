@@ -3,31 +3,46 @@
    console.log("in");
    var duedate = document.getElementById('duedate').value;
    var shippingdate = document.getElementById('shippingdate').value;
+   var itemcode = document.getElementById('itemcode').value
    var invoiceno = document.getElementById('invoiceno').value;
    var description = document.getElementById('description').value;
    var unitprice = document.getElementById('unitprice').value;
-   var quantity = document.getElementById('quantity')
+   var quantity = document.getElementById('quantity').value;
+   var discount = document.getElementById('discount').value;
+   var amount = document.getElementById('amount').value;
    localStorage.setItem("duedate", duedate);
    localStorage.setItem("shippingdate", shippingdate);
+   localStorage.setItem("itemcode", itemcode)
    localStorage.setItem("invoiceno", invoiceno);
    localStorage.setItem("description", description);
    localStorage.setItem("unitprice", unitprice);
    localStorage.getItem("quantity", quantity);
-    window.location="certificate.html";
+   localStorage.getItem("discount", discount);
+   localStorage.getItem("amount", amount);
+     window.location="certificate.html";
 
   }
   var rdate = localStorage.getItem("duedate");
   var sdate = localStorage.getItem("shippingdate");
+  var itemz = localStorage.getItem("itemcode")
   var invno = localStorage.getItem("invoiceno");
   var desc = localStorage.getItem("description");
   var unitp = localStorage.getItem("unitprice");
+  var quan = localStorage.getItem("quantity");
+  var disco = localStorage.getItem("discount");
+  var amt = localStorage.getItem("amount");
 
     console.log("zfzfggcvhbjnkmllkjhgfdxfcvgbhnjmklghf");
     console.log(rname);
-    document.getElementById('dname').innerHTML = rdate;
-    document.getElementById('dage').innerHTML = rage;
-    document.getElementById('dura').innerHTML = dur;
-    document.getElementById('sign').innerHTML = sig;
+    document.getElementById('due').innerHTML = rdate;
+    document.getElementById('shipping').innerHTML = sdate;
+    document.getElementById('ite').innerHTML = itemz;
+    document.getElementById('inv').innerHTML = invno;
+    document.getElementById('des').innerHTML = desc;
+    document.getElementById('uni').innerHTML = unitp;
+    document.getElementById('qua').innerHTML = quan;
+    document.getElementById('dis').innerHTML = disco;
+    document.getElementById('amo').innerHTML = amt;
 
     (function () {
         var
