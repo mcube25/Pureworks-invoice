@@ -11,38 +11,31 @@
    var discount = document.getElementById('discount').value;
    var amount = document.getElementById('amount').value;
    localStorage.setItem("duedate", duedate);
+   console.log('duedate');
    localStorage.setItem("shippingdate", shippingdate);
-   localStorage.setItem("itemcode", itemcode)
+   localStorage.setItem("itemcode", itemcode);
+   console.log('itemcode');
    localStorage.setItem("invoiceno", invoiceno);
    localStorage.setItem("description", description);
    localStorage.setItem("unitprice", unitprice);
-   localStorage.getItem("quantity", quantity);
-   localStorage.getItem("discount", discount);
-   localStorage.getItem("amount", amount);
+   localStorage.setItem("quantity", quantity);
+   localStorage.setItem("discount", discount);
+   localStorage.setItem("amount", amount);
      window.location="certificate.html";
 
   }
-  var rdate = localStorage.getItem("duedate");
-  var sdate = localStorage.getItem("shippingdate");
-  var itemz = localStorage.getItem("itemcode")
-  var invno = localStorage.getItem("invoiceno");
-  var desc = localStorage.getItem("description");
-  var unitp = localStorage.getItem("unitprice");
-  var quan = localStorage.getItem("quantity");
-  var disco = localStorage.getItem("discount");
-  var amt = localStorage.getItem("amount");
+
 
     console.log("zfzfggcvhbjnkmllkjhgfdxfcvgbhnjmklghf");
-    console.log(rname);
-    document.getElementById('due').innerHTML = rdate;
-    document.getElementById('shipping').innerHTML = sdate;
-    document.getElementById('ite').innerHTML = itemz;
-    document.getElementById('inv').innerHTML = invno;
-    document.getElementById('des').innerHTML = desc;
-    document.getElementById('uni').innerHTML = unitp;
-    document.getElementById('qua').innerHTML = quan;
-    document.getElementById('dis').innerHTML = disco;
-    document.getElementById('amo').innerHTML = amt;
+    document.getElementById('due').innerHTML = localStorage.getItem("duedate");
+    document.getElementById('shipping').innerHTML = localStorage.getItem("shippingdate");
+    document.getElementById('ite').innerHTML = localStorage.getItem("itemcode");
+    document.getElementById('inv').innerHTML =  localStorage.getItem("invoiceno");
+    document.getElementById('des').innerHTML = localStorage.getItem("description");
+    document.getElementById('uni').innerHTML = localStorage.getItem("unitprice");
+    document.getElementById('qua').innerHTML = localStorage.getItem("quantity");
+    document.getElementById('dis').innerHTML = localStorage.getItem("discount");
+    document.getElementById('amo').innerHTML = localStorage.getItem("amount");
 
     (function () {
         var

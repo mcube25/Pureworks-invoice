@@ -1,108 +1,112 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 <head>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Pureworks </title>
-<meta name="description" content="">
-<meta name="msapplication-tap-highlight" content="yes" />
-
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
-<link href='http://fonts.googleapis.com/css?family=Cabin:400,400italic,500,600,700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--		 Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="stylesheet" href="css/main2.css">
-<script src="js/app.js"></script>
-<script src="js/modernizr-2.6.2.min.js"></script>
-<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?sensor=false&#038;ver=3.0'></script>
+  <title>Pureworks Invoicing</title>
+  <meta charset='utf-8'>
+  <meta name="description" content="application">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+  <script type="text/javascript" src="js/main2.js"></script>
 </head>
+<body ng-app="invoicing" ng-controller="InvoiceCtrl" >
 
-<body>
-  <div class="container">
+  <div class="container" width="800px" id="invoice" >
     <div class="row">
-      <div class="col-sm">
-        <h3>Purchase Order</h3>
-      </div>
-      <div class="col-sm">
-
-      </div>
-      <div class="col-sm">
-          <button class="btn btn-primary" name="button">New Order</button>
+      <div class="col-xs-12 heading">
+        PURCHASE ORDER
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm">
-        <h6>All</h6>
+    <div class="row branding">
+      <div class="col-xs-6">
+        <div class="invoice-number-container">
+          <label for="invoice-number">Order #</label><input type="text" id="invoice-number" ng-model="invoice.invoice_number" />
+        </div>
       </div>
-      <div class="col-sm">
-    <p>This year</p>
-      </div>
-      <div class="col-sm">
-        <form class="example" action="action_page.php">
-<input type="text" placeholder="Search.." name="search">
-<button type="submit"><i class="fa fa-search"></i></button>
-</form>
-      </div>
-      <div class="col-sm">
-        <p>Actions</p>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-sm">
-      <p id="duedate">due date</p>
-    </div>
-    <div class="col-sm">
-    <p id="shippingdate">shipping date</p>
-    </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
-        <h6>Item code</h6>
-                   <input type="text" id="itemcode" name="firstname" placeholder="item">
-      </div>
-      <div class="col-sm">
-<h6>Invoice No</h6>
-<input type="text" id="invoiceno" name="firstname" placeholder="item">
-      </div>
-      <div class="col-sm">
-<h6>Description</h6>
-<textarea name="name" rows="2" cols="45" id="description"></textarea>
-      </div>
-      <div class="col-sm">
-<p>unit price</p>
-<input type="text" id="unitprice" name="firstname" placeholder="item">
-      </div>
-      <div class="col-sm">
-        <p>Quantity</p>
-        <input type="text" id="quantity" name="firstname" placeholder="item">
-      </div>
-      <div class="col-sm">
-        <p>Discount</p>
-        <input type="text" id="discount" name="firstname" placeholder="item">
-      </div>
-      <div class="col-sm">
-        <p>Amount</p>
-        <input type="text" id="amount" name="firstname" placeholder="item">
+      <div class="col-xs-6 logo-container">
+        <input type="file" id="imgInp" />
+        <img ng-hide="logoRemoved" id="company_logo" ng-src="{{ logo }}" alt="your image" width="300" />
+        <div>
+          <div class="noPrint" ng-hide="printMode">
+            <a ng-click="editLogo()" href >Edit Logo</a>
+            <a ng-click="toggleLogo()" id="remove_logo" href >{{ logoRemoved ? 'Show' : 'Hide' }} logo</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row">
-    <div class="col-sm">
-    <button onclick="submit()">Get Order</button>
+    <div class="row infos">
+      <div class="col-xs-6">
+        <div class="input-container"><input type="text" ng-model="invoice.customer_info.name"/></div>
+        <div class="input-container"><input type="text" ng-model="invoice.customer_info.web_link"/></div>
+        <div class="input-container"><input type="text" ng-model="invoice.customer_info.address1"/></div>
+        <div class="input-container"><input type="text" ng-model="invoice.customer_info.address2"/></div>
+        <div class="input-container"><input type="text" ng-model="invoice.customer_info.postal"/></div>
+        <div class="input-container" data-ng-hide='printMode'>
+          <select ng-model='currencySymbol' ng-options='currency.symbol as currency.name for currency in availableCurrencies'></select>
+        </div>
+      </div>
+      <div class="col-xs-6 right">
+        <div class="input-container"><input type="text" ng-model="invoice.company_info.name"/></div>
+        <div class="input-container"><input type="text" ng-model="invoice.company_info.web_link"/></div>
+        <div class="input-container"><input type="text" ng-model="invoice.company_info.address1"/></div>
+        <div class="input-container"><input type="text" ng-model="invoice.company_info.address2"/></div>
+        <div class="input-container"><input type="text" ng-model="invoice.company_info.postal"/></div>
+      </div>
     </div>
-    <div class="col-sm">
-
+    <div class="items-table">
+      <div class="row header">
+        <div class="col-xs-1">&nbsp;</div>
+        <div class="col-xs-5">Description</div>
+        <div class="col-xs-2">Quantity</div>
+        <div class="col-xs-2">Cost {{currencySymbol}}</div>
+        <div class="col-xs-2 text-right">Total</div>
+      </div>
+      <div class="row invoice-item" ng-repeat="item in invoice.items" ng-animate="'slide-down'">
+        <div class="col-xs-1 remove-item-container">
+          <a href ng-hide="printMode" ng-click="removeItem(item)" class="btn btn-danger">[X]</a>
+        </div>
+        <div class="col-xs-5 input-container">
+          <input ng-model="item.description" placeholder="Description" />
+        </div>
+        <div class="col-xs-2 input-container">
+          <input ng-model="item.qty" value="1" size="4" ng-required ng-validate="integer" placeholder="Quantity" />
+        </div>
+        <div class="col-xs-2 input-container">
+          <input ng-model="item.cost" value="0.00" ng-required ng-validate="number" size="6" placeholder="Cost" />
+        </div>
+        <div class="col-xs-2 text-right input-container">
+          {{item.cost * item.qty | currency: currencySymbol}}
+        </div>
+      </div>
+      <div class="row invoice-item">
+        <div class="col-xs-12 add-item-container" ng-hide="printMode">
+          <a class="btn btn-primary" href ng-click="addItem()" >[+]</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 text-right">Sub Total</div>
+        <div class="col-xs-2 text-right">{{invoiceSubTotal() | currency: currencySymbol}}</div>
+      </div>
+      <div class="row">
+      
+      </div>
+      <div class="row">
+        <div class="col-xs-10 text-right">Grand Total:</div>
+        <div class="col-xs-2 text-right">{{calculateGrandTotal() | currency: currencySymbol}}</div>
+      </div>
     </div>
-    <div class="col-sm">
-      <p id="total">Total</p>
-    </div>
-    <div class="col-sm">
-    <p id="grandtotal">Grand Total</p>
-    </div>
+    <div class="row noPrint actions">
+      <a href="#" class="btn btn-primary" ng-show="printMode" ng-click="printInfo()">Print</a>
+      <a href="#" class="btn btn-primary" ng-click="clearLocalStorage()">Reset</a>
+      <a href="#" class="btn btn-primary" ng-hide="printMode" ng-click="printMode = true;">Turn On Print Mode</a>
+      <a href="#" class="btn btn-primary" ng-show="printMode" ng-click="printMode = false;">Turn Off Print Mode</a>
+      <a href="index.html" class="btn btn-primary" ng-show="printMode" ng-click="printMode = false;">Back to Home</a>
+      <a href="index.html" class="btn btn-primary" ng-hide="printMode" ng-click="printMode = false;">Back to Home</a>
     </div>
   </div>
-</body>
 
+  <div ng-hide="printMode" class="copy noPrint">
+    <a href="https://metawarelabs.com/?utm_source=angular_invoicing">Pureworks Invoice</a>
+  </div>
+</body>
 </html>
